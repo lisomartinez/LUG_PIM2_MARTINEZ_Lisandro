@@ -1,4 +1,5 @@
 ﻿using System;
+using Entidades.Shared;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;

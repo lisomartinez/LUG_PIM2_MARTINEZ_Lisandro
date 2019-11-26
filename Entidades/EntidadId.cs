@@ -1,26 +1,25 @@
 ﻿using System;
 
-namespace Tests
+namespace Entidades
 {
-    public class NroSocio : IEquatable<NroSocio>
+    public class EntidadId : IEquatable<EntidadId>
     {
-        private readonly int _nro;
+        private int numero;
 
-        public NroSocio(int nro)
+        public EntidadId(int numero)
         {
-            if (nro < 1) throw new NroSocioInvalidoException();
-            _nro = nro;
+            this.numero = numero;
         }
 
-        public static NroSocio Of(int nro) => new NroSocio(nro);
-        public int AsInt() => _nro;
+        public static EntidadId Vacia => new EntidadId(0);
 
+        public static EntidadId Of(int numero) => new EntidadId(numero);
 
-        public bool Equals(NroSocio other)
+        public bool Equals(EntidadId other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return _nro == other._nro;
+            return numero == other.numero;
         }
 
         public override bool Equals(object obj)
@@ -28,17 +27,17 @@ namespace Tests
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((NroSocio) obj);
+            return Equals((EntidadId) obj);
         }
 
         public override int GetHashCode()
         {
-            return _nro;
+            return numero;
         }
 
         public override string ToString()
         {
-            return $"Nro: {_nro}";
+            return $"{numero}";
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
-using Entidades;
+using Tests;
 
-namespace Tests
+namespace Entidades.Shared
 {
     public class Nombre : IEquatable<Nombre>
     {
@@ -37,7 +37,7 @@ namespace Tests
 
         public override string ToString()
         {
-            return $"Texto: {_texto}";
+            return $"{_texto}";
         }
     }
 }

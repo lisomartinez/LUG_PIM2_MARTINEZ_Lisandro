@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidad.cs" />
+    <Compile Include="EntidadId.cs" />
     <Compile Include="Shared\NombreInvalidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Apellido.cs" />
