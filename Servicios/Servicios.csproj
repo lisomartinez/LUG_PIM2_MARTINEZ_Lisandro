@@ -42,11 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autores\AutorServicio.cs" />
+    <Compile Include="Autores\Excepciones\EliminarAutorException.cs" />
+    <Compile Include="Prestamos\Excepciones\EliminarPrestamoException.cs" />
     <Compile Include="Prestamos\PrestamoServicio.cs" />
+    <Compile Include="Publicaciones\Excepciones\EliminarLibroException.cs" />
     <Compile Include="Publicaciones\LibroServicio.cs" />
+    <Compile Include="Socios\Excepciones\EliminarSocioException.cs" />
+    <Compile Include="Excepciones\GuardarEntidadErrorException.cs" />
+    <Compile Include="Excepciones\ModificarEntidadErrorException.cs" />
+    <Compile Include="Excepciones\ObtenerTodosErrorException.cs" />
     <Compile Include="Socios\SocioServicio.cs" />
     <Compile Include="IServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Excepciones\VerificarDuplicadosException.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

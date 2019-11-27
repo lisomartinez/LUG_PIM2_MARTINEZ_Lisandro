@@ -12,6 +12,15 @@ namespace UI.Autores
 {
     public partial class DatosAutor : UserControl
     {
+
+        public override string ToString()
+        {
+            StringBuilder st = new StringBuilder();
+            st.Append(NumeroCampoNumero.Valido() ? "" : "\nNro. socio: Debe ser mayor que cero");
+            st.Append(NombreCampoTexto.Valido() ? "" : st.Length != 0 ? "\nNombre: Deber ser una sola palabra" : "Nombre: Deber ser una sola palabra");
+            st.Append(ApellidoCampoTexto.Valido() ? "" : st.Length != 0 ? "\nApellido: Deber ser una sola palabra" : "Apellido: Deber ser una sola palabra");
+            return st.ToString();
+        }
         public string Nombre
         {
             get => NombreCampoTexto.Texto;

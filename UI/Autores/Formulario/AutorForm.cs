@@ -59,6 +59,12 @@ namespace UI.Autores
             set => DatosAutor.Apellido = value;
         }
 
+        public DatosAutor DatosAutorControl
+        {
+            get => DatosAutor;
+            set => throw new NotImplementedException();
+        }
+
         private void AgregarButton_Click(object sender, EventArgs e)
         {
             _presentador.Guardar();

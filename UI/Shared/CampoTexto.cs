@@ -14,7 +14,7 @@ namespace UI.Shared
    
     public partial class CampoTexto : UserControl
     {
-        private static readonly Regex TextoValido = new Regex("^[a-zA-Z]{1,100}$");
+        private static readonly Regex TextoValido = new Regex("^[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]{1,100}$");
 
         public string Texto
         {

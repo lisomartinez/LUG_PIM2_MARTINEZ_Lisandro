@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UI.Prestamos.Controles;
 using UI.Publicaciones;
 using UI.Socios;
 
@@ -15,6 +16,7 @@ namespace UI.Prestamos
         DateTime FechaDevolucion { get; set; }
         int Numero { get; set; }
         PrestamoDto Prestamo { get; set; }
+        DatosPrestamo DatosPrestamoControl { get; set; }
         void MostrarMensaje(string eMessage);
     }
 }

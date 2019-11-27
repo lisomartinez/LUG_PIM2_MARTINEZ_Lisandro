@@ -14,6 +14,7 @@ namespace Repositorio.Socios
         private static readonly string GuardarSocio = "GuardarSocio";
         private static readonly string ModificarSocio = "ModificarSocio";
         private static readonly string EliminarSocio = "EliminarSocio";
+        private static readonly string DuplicadoSocio = "DuplicadoSocio";
         public SocioRepositorio(SqlAdaptador adaptador) : base(adaptador)
         {
         }
@@ -49,8 +50,16 @@ namespace Repositorio.Socios
 
         public override bool VerificarDuplicado(Socio entidad)
         {
-            return false;
+            var table = Adaptador.Leer(DuplicadoSocio, crearParametrosDuplicado(entidad));
+            var existe = table.Rows[0]["existe"] as int? ?? 0;
+            return existe != 0;
         }
+
+        private Dictionary<string, object> crearParametrosDuplicado(Socio entidad) =>
+            new Dictionary<string, object>
+            {
+                {"nro_socio", entidad.NroSocio.AsInt() }
+            };
 
         private Dictionary<string, object> crearParametrosEliminar(Socio entidad) =>
             new Dictionary<string, object>

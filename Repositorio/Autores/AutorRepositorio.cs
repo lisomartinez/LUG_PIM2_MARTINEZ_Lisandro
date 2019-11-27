@@ -13,6 +13,7 @@ namespace Repositorio.Autores
         private static readonly string GuardarAutor= "GuardarAutor";
         private static readonly string ModificarAutor= "ModificarAutor";
         private static readonly string EliminarAutor= "EliminarAutor";
+        private static readonly string DuplicadoAutor = "DuplicadoAutor";
 
         public AutorRepositorio() : base(SqlAdaptador.Instance)
         {
@@ -67,8 +68,17 @@ namespace Repositorio.Autores
 
         public override bool VerificarDuplicado(Autor entidad)
         {
-            return false;
+            var table = Adaptador.Leer(DuplicadoAutor, crearParametrosDuplicado(entidad));
+            var existe = table.Rows[0]["existe"] as int? ?? 0;
+            return existe != 0;
         }
+
+        private Dictionary<string, object> crearParametrosDuplicado(Autor entidad) =>
+            new Dictionary<string, object>
+            {
+                {"nro_autor", entidad.Numero.AsInt() }
+            };
+
 
         private Dictionary<string, object> crearParametrosEliminar(Autor entidad) =>
             new Dictionary<string, object>

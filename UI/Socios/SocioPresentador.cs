@@ -93,13 +93,19 @@ namespace UI.Socios
         {
             try
             {
+                if (!_vista.DatosSocioControl.Valido) throw new DatosSocioInvalidosException(_vista.DatosSocioControl);
+
                 var socio = _vista.Socio;
                 socio.Nro = _vista.NroSocio;
                 socio.Nombre = _vista.Nombre;
                 socio.Apellido = _vista.Apellido;
                 socio.Activo = _vista.Activo;
-                _servicio.Modificar(socio.ToEntity());
+                var socioEntidad = socio.ToEntity();
+                if (_servicio.VerificarDuplicados(socioEntidad)) throw new SocioDuplicadoException(socioEntidad);
+                
+                _servicio.Modificar(socioEntidad);
                 MostrarSocios();
+                
             }
             catch (Exception e)
             {
@@ -113,6 +119,8 @@ namespace UI.Socios
         {
             try
             {
+                if (!_vista.DatosSocioControl.Valido) throw new DatosSocioInvalidosException(_vista.DatosSocioControl);
+
                 var nro = NroSocio.Of(_vista.NroSocio);
                 var nombre = Nombre.Of(_vista.Nombre);
                 var apellido = Apellido.Of(_vista.Apellido);
@@ -123,7 +131,11 @@ namespace UI.Socios
                     apellido: apellido,
                     activo: activo
                 );
+                if (_servicio.VerificarDuplicados(socio)) throw new SocioDuplicadoException(socio);
+
                 _servicio.Guardar(socio);
+                MostrarSocios();
+
             }
             catch (Exception e)
             {

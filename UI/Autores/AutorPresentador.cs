@@ -58,6 +58,7 @@ namespace UI.Autores
         {
             try
             {
+                if (!_vista.DatosAutorControl.Valido) throw new DatosAutorInvalidosException(_vista.DatosAutorControl);
                 var nro = _vista.Nro;
                 var nombre = _vista.Nombre;
                 var apellido = _vista.Apellido;
@@ -66,6 +67,7 @@ namespace UI.Autores
                     nombre: Nombre.Of(nombre),
                     apellido: Apellido.Of(apellido)
                 );
+                if (_servicio.VerificarDuplicados(autor)) throw new AutorDuplicadoException(autor);
                 _servicio.Guardar(autor);
                 MostrarAutores();
             }
@@ -80,10 +82,13 @@ namespace UI.Autores
         {
             try
             {
+                if (!_vista.DatosAutorControl.Valido) throw new DatosAutorInvalidosException(_vista.DatosAutorControl);
                 var autor = _vista.Autor;
                 autor.Numero = _vista.Nro;
                 autor.Nombre = _vista.Nombre;
                 autor.Apellido = _vista.Apellido;
+
+                if(_servicio.VerificarDuplicados(autor.ToEntity())) throw new AutorDuplicadoException(autor.ToEntity());
                 _servicio.Modificar(autor.ToEntity());
                 MostrarAutores();
             }

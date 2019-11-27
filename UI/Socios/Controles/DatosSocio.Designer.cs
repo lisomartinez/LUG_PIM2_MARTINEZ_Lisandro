@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class NombreApellido
+    partial class DatosSocio
     {
         /// <summary> 
         /// Required designer variable.
@@ -114,7 +114,7 @@
             this.NombreCampoTexto.Texto = "";
             this.NombreCampoTexto.Load += new System.EventHandler(this.NombreCampoTexto_Load);
             // 
-            // NombreApellido
+            // DatosSocioControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +127,7 @@
             this.Controls.Add(this.NombreCampoTexto);
             this.Controls.Add(this.ApellidoLabel);
             this.Controls.Add(this.label1);
-            this.Name = "NombreApellido";
+            this.Name = "DatosSocio";
             this.Size = new System.Drawing.Size(290, 126);
             this.Load += new System.EventHandler(this.NombreApellido_Load);
             this.ResumeLayout(false);

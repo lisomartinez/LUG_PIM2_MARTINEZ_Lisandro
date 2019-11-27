@@ -8,8 +8,6 @@ namespace Entidades.Prestamos
 
         private Fecha(DateTime fecha)
         {
-
-            if (fecha.Date <= DateTime.Today.Date) throw new FechaDeDevolucionException(fecha);
             _fecha = fecha;
         }
 

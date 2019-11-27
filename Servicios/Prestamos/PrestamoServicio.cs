@@ -29,9 +29,8 @@ namespace Servicios.Prestamos
                 return _repositorio.ObtenerTodos();
             }
             catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
+            { 
+                throw new ObtenerTodosErrorException();
             }
         }
 
@@ -44,8 +43,7 @@ namespace Servicios.Prestamos
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new GuardarEntidadErrorException(entidad);
             }
         }
 
@@ -58,8 +56,7 @@ namespace Servicios.Prestamos
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new ModificarEntidadErrorException(entidad);
             }
         }
 
@@ -72,8 +69,7 @@ namespace Servicios.Prestamos
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new EliminarPrestamoException(entidad);
             }
         }
 
@@ -84,9 +80,8 @@ namespace Servicios.Prestamos
                 return _repositorio.VerificarDuplicado(entidad);
             }
             catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
+            { 
+                throw new VerificarDuplicadosException(entidad);
             }
             
         }

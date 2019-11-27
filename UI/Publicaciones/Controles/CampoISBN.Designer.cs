@@ -28,10 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.TextBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // TextBox
+            // 
+            this.TextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.TextBox.Location = new System.Drawing.Point(0, 0);
+            this.TextBox.Name = "TextBox";
+            this.TextBox.Size = new System.Drawing.Size(220, 20);
+            this.TextBox.TabIndex = 1;
+            this.TextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // CampoISBN
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TextBox);
+            this.Name = "CampoISBN";
+            this.Size = new System.Drawing.Size(220, 19);
+            this.Load += new System.EventHandler(this.CampoISBN_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox TextBox;
     }
 }

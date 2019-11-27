@@ -27,8 +27,7 @@ namespace Servicios.Publicaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new ObtenerTodosErrorException();
             }
         }
 
@@ -41,8 +40,7 @@ namespace Servicios.Publicaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new GuardarEntidadErrorException(entidad);
             }
         }
 
@@ -55,8 +53,7 @@ namespace Servicios.Publicaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new ModificarEntidadErrorException(entidad);
             }
         }
 
@@ -69,14 +66,21 @@ namespace Servicios.Publicaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                
+                throw new EliminarLibroException(entidad);
             }
         }
 
         public bool VerificarDuplicados(Libro entidad)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.VerificarDuplicado(entidad);
+            }
+            catch (Exception e)
+            {
+                throw new VerificarDuplicadosException(entidad);
+            }
         }
     }
 }

@@ -49,8 +49,7 @@ namespace Repositorio
             catch (Exception e)
             {
                 _transaction.Rollback();
-                Console.WriteLine(e);
-                throw;
+                throw new LecturaSqlException(e.Message);
             }
             finally
             {
@@ -87,8 +86,7 @@ namespace Repositorio
             catch (Exception e)
             {
                 _transaction.Rollback();
-                Console.WriteLine(e);
-                return false;
+                throw new EscrituraSqlException(e.Message);
             }
             finally
             {

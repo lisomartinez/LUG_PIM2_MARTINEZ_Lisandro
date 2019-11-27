@@ -9,6 +9,7 @@ namespace UI.Autores
         int Nro { get; set; }
         string Nombre { get; set; }
         string Apellido { get; set; }
+        DatosAutor DatosAutorControl { get; set; }
         void MostrarMensaje(string eMessage);
     }
 }

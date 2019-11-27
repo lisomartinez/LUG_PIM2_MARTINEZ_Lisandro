@@ -33,20 +33,12 @@
             this.LibroGB = new System.Windows.Forms.GroupBox();
             this.AutoresLibroLB = new System.Windows.Forms.ListBox();
             this.AutoresLB = new System.Windows.Forms.ListBox();
-            this.EditorialCampoTexto = new UI.Shared.CampoTexto();
-            this.TitulocampoTexto = new UI.Shared.CampoTexto();
-            this.NroCampoNumero = new UI.Shared.CampoNumero();
             this.EliminarAutorButton = new System.Windows.Forms.Button();
             this.AgregarAutorButton = new System.Windows.Forms.Button();
-            this.FechaDTP = new System.Windows.Forms.DateTimePicker();
-            this.EditorialLabel = new System.Windows.Forms.Label();
-            this.ISBNLabel = new System.Windows.Forms.Label();
-            this.TituloLabel = new System.Windows.Forms.Label();
-            this.FechaLabel = new System.Windows.Forms.Label();
-            this.NroLabel = new System.Windows.Forms.Label();
             this.EliminarBTN = new System.Windows.Forms.Button();
             this.ModificarBTN = new System.Windows.Forms.Button();
             this.AgregarBTN = new System.Windows.Forms.Button();
+            this.DatosLibro = new UI.Publicaciones.DatosLibro();
             this.LibrosGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LibrosDGV)).BeginInit();
             this.LibroGB.SuspendLayout();
@@ -74,19 +66,11 @@
             // 
             // LibroGB
             // 
+            this.LibroGB.Controls.Add(this.DatosLibro);
             this.LibroGB.Controls.Add(this.AutoresLibroLB);
             this.LibroGB.Controls.Add(this.AutoresLB);
-            this.LibroGB.Controls.Add(this.EditorialCampoTexto);
-            this.LibroGB.Controls.Add(this.TitulocampoTexto);
-            this.LibroGB.Controls.Add(this.NroCampoNumero);
             this.LibroGB.Controls.Add(this.EliminarAutorButton);
             this.LibroGB.Controls.Add(this.AgregarAutorButton);
-            this.LibroGB.Controls.Add(this.FechaDTP);
-            this.LibroGB.Controls.Add(this.EditorialLabel);
-            this.LibroGB.Controls.Add(this.ISBNLabel);
-            this.LibroGB.Controls.Add(this.TituloLabel);
-            this.LibroGB.Controls.Add(this.FechaLabel);
-            this.LibroGB.Controls.Add(this.NroLabel);
             this.LibroGB.Controls.Add(this.EliminarBTN);
             this.LibroGB.Controls.Add(this.ModificarBTN);
             this.LibroGB.Controls.Add(this.AgregarBTN);
@@ -113,30 +97,6 @@
             this.AutoresLB.Size = new System.Drawing.Size(236, 186);
             this.AutoresLB.TabIndex = 1;
             // 
-            // EditorialCampoTexto
-            // 
-            this.EditorialCampoTexto.Location = new System.Drawing.Point(77, 203);
-            this.EditorialCampoTexto.Name = "EditorialCampoTexto";
-            this.EditorialCampoTexto.Size = new System.Drawing.Size(220, 21);
-            this.EditorialCampoTexto.TabIndex = 15;
-            this.EditorialCampoTexto.Texto = "";
-            // 
-            // TitulocampoTexto
-            // 
-            this.TitulocampoTexto.Location = new System.Drawing.Point(69, 121);
-            this.TitulocampoTexto.Name = "TitulocampoTexto";
-            this.TitulocampoTexto.Size = new System.Drawing.Size(220, 21);
-            this.TitulocampoTexto.TabIndex = 14;
-            this.TitulocampoTexto.Texto = "";
-            // 
-            // NroCampoNumero
-            // 
-            this.NroCampoNumero.Location = new System.Drawing.Point(69, 27);
-            this.NroCampoNumero.Name = "NroCampoNumero";
-            this.NroCampoNumero.Numero = 0;
-            this.NroCampoNumero.Size = new System.Drawing.Size(212, 21);
-            this.NroCampoNumero.TabIndex = 13;
-            // 
             // EliminarAutorButton
             // 
             this.EliminarAutorButton.Location = new System.Drawing.Point(244, 328);
@@ -156,59 +116,6 @@
             this.AgregarAutorButton.Text = ">>";
             this.AgregarAutorButton.UseVisualStyleBackColor = true;
             this.AgregarAutorButton.Click += new System.EventHandler(this.AgregarAutorButton_Click);
-            // 
-            // FechaDTP
-            // 
-            this.FechaDTP.Location = new System.Drawing.Point(69, 65);
-            this.FechaDTP.Name = "FechaDTP";
-            this.FechaDTP.Size = new System.Drawing.Size(200, 20);
-            this.FechaDTP.TabIndex = 11;
-            // 
-            // EditorialLabel
-            // 
-            this.EditorialLabel.AutoSize = true;
-            this.EditorialLabel.Location = new System.Drawing.Point(26, 203);
-            this.EditorialLabel.Name = "EditorialLabel";
-            this.EditorialLabel.Size = new System.Drawing.Size(44, 13);
-            this.EditorialLabel.TabIndex = 10;
-            this.EditorialLabel.Text = "Editorial";
-            // 
-            // ISBNLabel
-            // 
-            this.ISBNLabel.AutoSize = true;
-            this.ISBNLabel.Location = new System.Drawing.Point(26, 160);
-            this.ISBNLabel.Name = "ISBNLabel";
-            this.ISBNLabel.Size = new System.Drawing.Size(32, 13);
-            this.ISBNLabel.TabIndex = 10;
-            this.ISBNLabel.Text = "ISBN";
-            // 
-            // TituloLabel
-            // 
-            this.TituloLabel.AutoSize = true;
-            this.TituloLabel.Location = new System.Drawing.Point(26, 121);
-            this.TituloLabel.Name = "TituloLabel";
-            this.TituloLabel.Size = new System.Drawing.Size(33, 13);
-            this.TituloLabel.TabIndex = 10;
-            this.TituloLabel.Text = "Titulo";
-            // 
-            // FechaLabel
-            // 
-            this.FechaLabel.AutoSize = true;
-            this.FechaLabel.Location = new System.Drawing.Point(26, 72);
-            this.FechaLabel.Name = "FechaLabel";
-            this.FechaLabel.Size = new System.Drawing.Size(37, 13);
-            this.FechaLabel.TabIndex = 10;
-            this.FechaLabel.Text = "Fecha";
-            // 
-            // NroLabel
-            // 
-            this.NroLabel.AutoSize = true;
-            this.NroLabel.Location = new System.Drawing.Point(29, 36);
-            this.NroLabel.Name = "NroLabel";
-            this.NroLabel.Size = new System.Drawing.Size(24, 13);
-            this.NroLabel.TabIndex = 10;
-            this.NroLabel.Text = "Nro";
-            this.NroLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // EliminarBTN
             // 
@@ -240,6 +147,13 @@
             this.AgregarBTN.UseVisualStyleBackColor = true;
             this.AgregarBTN.Click += new System.EventHandler(this.AgregarBTN_Click);
             // 
+            // DatosLibroControl
+            // 
+            this.DatosLibro.Location = new System.Drawing.Point(6, 19);
+            this.DatosLibro.Name = "DatosLibro";
+            this.DatosLibro.Size = new System.Drawing.Size(374, 204);
+            this.DatosLibro.TabIndex = 13;
+            // 
             // LibroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,7 +167,6 @@
             this.LibrosGB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LibrosDGV)).EndInit();
             this.LibroGB.ResumeLayout(false);
-            this.LibroGB.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -266,12 +179,6 @@
         private System.Windows.Forms.Button EliminarBTN;
         private System.Windows.Forms.Button ModificarBTN;
         private System.Windows.Forms.Button AgregarBTN;
-        private System.Windows.Forms.Label ISBNLabel;
-        private System.Windows.Forms.Label TituloLabel;
-        private System.Windows.Forms.Label FechaLabel;
-        private System.Windows.Forms.Label NroLabel;
-        private System.Windows.Forms.DateTimePicker FechaDTP;
-        private System.Windows.Forms.Label EditorialLabel;
         private Shared.CampoNumero NroCampoNumero;
         private System.Windows.Forms.Button EliminarAutorButton;
         private System.Windows.Forms.Button AgregarAutorButton;
@@ -279,5 +186,6 @@
         private Shared.CampoTexto TitulocampoTexto;
         private System.Windows.Forms.ListBox AutoresLibroLB;
         private System.Windows.Forms.ListBox AutoresLB;
+        private DatosLibro DatosLibro;
     }
 }

@@ -17,6 +17,7 @@ namespace UI.Publicaciones
         List<AutorDto> ListaAutores { get; set; }
         AutorDto AutorSeleccionado { get; set; }
         AutorDto AutorLibroSeleccionado { get; set; }
+        DatosLibro DatosLibroControl { get; set; }
         void MostrarMensaje(string eMessage);
     }
 }

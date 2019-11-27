@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.PrestamoGB = new System.Windows.Forms.GroupBox();
-            this.FechaDevolucionDTP = new System.Windows.Forms.DateTimePicker();
-            this.FechaDevolucionLabel = new System.Windows.Forms.Label();
             this.DevolverBTN = new System.Windows.Forms.Button();
             this.ModificarBTN = new System.Windows.Forms.Button();
             this.PrestarBTN = new System.Windows.Forms.Button();
@@ -40,8 +38,7 @@
             this.LibrosDGV = new System.Windows.Forms.DataGridView();
             this.SocioGB = new System.Windows.Forms.GroupBox();
             this.SociosDGV = new System.Windows.Forms.DataGridView();
-            this.NumeroLabel = new System.Windows.Forms.Label();
-            this.NumeroCampoNumero = new UI.Shared.CampoNumero();
+            this.DatosPrestamo = new UI.Prestamos.Controles.DatosPrestamo();
             this.PrestamoGB.SuspendLayout();
             this.PrestamosGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrestamosDGV)).BeginInit();
@@ -53,35 +50,16 @@
             // 
             // PrestamoGB
             // 
-            this.PrestamoGB.Controls.Add(this.NumeroCampoNumero);
-            this.PrestamoGB.Controls.Add(this.NumeroLabel);
-            this.PrestamoGB.Controls.Add(this.FechaDevolucionDTP);
-            this.PrestamoGB.Controls.Add(this.FechaDevolucionLabel);
+            this.PrestamoGB.Controls.Add(this.DatosPrestamo);
             this.PrestamoGB.Controls.Add(this.DevolverBTN);
             this.PrestamoGB.Controls.Add(this.ModificarBTN);
             this.PrestamoGB.Controls.Add(this.PrestarBTN);
             this.PrestamoGB.Location = new System.Drawing.Point(770, 12);
             this.PrestamoGB.Name = "PrestamoGB";
-            this.PrestamoGB.Size = new System.Drawing.Size(315, 651);
+            this.PrestamoGB.Size = new System.Drawing.Size(341, 651);
             this.PrestamoGB.TabIndex = 3;
             this.PrestamoGB.TabStop = false;
             this.PrestamoGB.Text = "Prestamo";
-            // 
-            // FechaDevolucionDTP
-            // 
-            this.FechaDevolucionDTP.Location = new System.Drawing.Point(98, 87);
-            this.FechaDevolucionDTP.Name = "FechaDevolucionDTP";
-            this.FechaDevolucionDTP.Size = new System.Drawing.Size(200, 20);
-            this.FechaDevolucionDTP.TabIndex = 11;
-            // 
-            // FechaDevolucionLabel
-            // 
-            this.FechaDevolucionLabel.AutoSize = true;
-            this.FechaDevolucionLabel.Location = new System.Drawing.Point(3, 94);
-            this.FechaDevolucionLabel.Name = "FechaDevolucionLabel";
-            this.FechaDevolucionLabel.Size = new System.Drawing.Size(89, 13);
-            this.FechaDevolucionLabel.TabIndex = 10;
-            this.FechaDevolucionLabel.Text = "fecha devolución";
             // 
             // DevolverBTN
             // 
@@ -169,22 +147,14 @@
             this.SociosDGV.Size = new System.Drawing.Size(719, 184);
             this.SociosDGV.TabIndex = 0;
             // 
-            // NumeroLabel
+            // DatosPrestamo
             // 
-            this.NumeroLabel.AutoSize = true;
-            this.NumeroLabel.Location = new System.Drawing.Point(7, 49);
-            this.NumeroLabel.Name = "NumeroLabel";
-            this.NumeroLabel.Size = new System.Drawing.Size(44, 13);
-            this.NumeroLabel.TabIndex = 12;
-            this.NumeroLabel.Text = "Numero";
-            // 
-            // NumeroCampoNumero
-            // 
-            this.NumeroCampoNumero.Location = new System.Drawing.Point(86, 49);
-            this.NumeroCampoNumero.Name = "NumeroCampoNumero";
-            this.NumeroCampoNumero.Numero = 0;
-            this.NumeroCampoNumero.Size = new System.Drawing.Size(212, 21);
-            this.NumeroCampoNumero.TabIndex = 13;
+            this.DatosPrestamo.FechaPublicacion = new System.DateTime(2019, 11, 27, 17, 37, 20, 16);
+            this.DatosPrestamo.Location = new System.Drawing.Point(6, 57);
+            this.DatosPrestamo.Name = "DatosPrestamo";
+            this.DatosPrestamo.Numero = 0;
+            this.DatosPrestamo.Size = new System.Drawing.Size(319, 60);
+            this.DatosPrestamo.TabIndex = 9;
             // 
             // PrestamoForm
             // 
@@ -199,7 +169,6 @@
             this.Text = "PrestamoForm";
             this.Load += new System.EventHandler(this.PrestamoForm_Load);
             this.PrestamoGB.ResumeLayout(false);
-            this.PrestamoGB.PerformLayout();
             this.PrestamosGB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PrestamosDGV)).EndInit();
             this.LibroGB.ResumeLayout(false);
@@ -222,9 +191,6 @@
         private System.Windows.Forms.GroupBox SocioGB;
         private System.Windows.Forms.DataGridView SociosDGV;
         private System.Windows.Forms.Button ModificarBTN;
-        private System.Windows.Forms.DateTimePicker FechaDevolucionDTP;
-        private System.Windows.Forms.Label FechaDevolucionLabel;
-        private Shared.CampoNumero NumeroCampoNumero;
-        private System.Windows.Forms.Label NumeroLabel;
+        private Controles.DatosPrestamo DatosPrestamo;
     }
 }

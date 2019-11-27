@@ -76,12 +76,14 @@ namespace UI.Publicaciones
         {
             try
             {
+                if (!_vista.DatosLibroControl.Valido) throw new DatosLibroInvalidosException(_vista.DatosLibroControl);
                 var nro = _vista.Numero;
                 var titulo = _vista.Titulo;
                 var editorial = _vista.Editorial;
                 var fecha = _vista.Fecha;
                 var isbn = _vista.Isbn;
                 var autores = _vista.Autores;
+
                 var libro = new Libro(
                     numero: NroPublicacion.Of(nro),
                     titulo: Titulo.Of(titulo),
@@ -90,6 +92,7 @@ namespace UI.Publicaciones
                     isbn: ISBN.Of(isbn),
                     autores: autores.Select(a => a.ToEntity()).ToList()
                 );
+                if (_libroServicio.VerificarDuplicados(libro)) throw new LibroDuplicadoException(libro);
                 _libroServicio.Guardar(libro);
                 MostrarLibros();
                 LimpiarDatos();
@@ -123,6 +126,8 @@ namespace UI.Publicaciones
         {
             try
             {
+                if (!_vista.DatosLibroControl.Valido) throw new DatosLibroInvalidosException(_vista.DatosLibroControl);
+
                 var libro = _vista.Libro;
                 libro.Nro = _vista.Numero;
                 libro.Titulo = _vista.Titulo;
@@ -130,6 +135,7 @@ namespace UI.Publicaciones
                 libro.Fecha = _vista.Fecha;
                 libro.Isbn = _vista.Isbn;
                 libro.Autores = _vista.Autores;
+                if (_libroServicio.VerificarDuplicados(libro.ToEntity())) throw new LibroDuplicadoException(libro.ToEntity());
                 _libroServicio.Modificar(libro.ToEntity());
                 MostrarLibros();
             }

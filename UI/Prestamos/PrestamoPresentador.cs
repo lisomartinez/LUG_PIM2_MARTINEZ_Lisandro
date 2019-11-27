@@ -73,26 +73,21 @@ namespace UI.Prestamos
 
         }
 
-        public void MostrarLibros()
-        {
-            
-        }
-
         public void PrestarLibro()
         {
             try
             {
+                if (_vista.DatosPrestamoControl.Valido)
+                    throw new DatosPrestamoInvalidosException(_vista.DatosPrestamoControl);
                 var numero = NroPrestamo.Of(_vista.Numero);
                 var libro = _vista.Libro.ToEntity();
                 var socio = _vista.Socio.ToEntity();
                 var fechaPrestamo = Fecha.Of(DateTime.Today);
                 var fechaDevolucion = Fecha.Of(_vista.FechaDevolucion);
                 var prestamo = new Prestamo(numero, socio, libro, fechaPrestamo, fechaDevolucion);
-                var duplicado = _prestamoServicio.VerificarDuplicados(prestamo);
-                if (!duplicado)
-                {
-                    _prestamoServicio.Guardar(prestamo);
-                }
+
+                if (_prestamoServicio.VerificarDuplicados(prestamo)) throw new PrestamoDuplicadoException(prestamo);
+                _prestamoServicio.Guardar(prestamo);
                 MostrarPrestamos();
             }
             catch (Exception e)

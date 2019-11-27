@@ -11,8 +11,16 @@ using Entidades.Shared;
 
 namespace UI
 {
-    public partial class NombreApellido : UserControl
+    public partial class DatosSocio : UserControl
     {
+        public override string ToString()
+        {
+            StringBuilder st = new StringBuilder();
+            st.Append(NumeroCampoNumero.Valido() ? "" : "\nNro. socio: Debe ser mayor que cero");
+            st.Append(NombreCampoTexto.Valido()? "" : st.Length != 0 ? "\nNombre: Deber ser una sola palabra" : "Nombre: Deber ser una sola palabra");
+            st.Append(ApellidoCampoTexto.Valido() ? "" : st.Length != 0 ? "\nApellido: Deber ser una sola palabra" : "Apellido: Deber ser una sola palabra");
+            return st.ToString();
+        }
 
         public string Nombre
         {
@@ -40,7 +48,7 @@ namespace UI
 
         public bool Valido => NumeroCampoNumero.Valido() && NombreCampoTexto.Valido() && ApellidoCampoTexto.Valido();
 
-        public NombreApellido()
+        public DatosSocio()
         {
             InitializeComponent();
         }

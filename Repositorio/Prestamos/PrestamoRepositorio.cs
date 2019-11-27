@@ -18,6 +18,7 @@ namespace Repositorio
         private static readonly string GuardarPrestamo = "GuardarPrestamo";
         private static readonly string ModificarPrestamo = "ModificarPrestamo";
         private static readonly string EliminarPrestamo = "EliminarPrestamo";
+        private static readonly string Duplicadoprestamo = "DuplicadoPrestamo";
 
         public PrestamoRepositorio(SqlAdaptador adaptador) : base(adaptador)
         {
@@ -103,6 +104,9 @@ namespace Repositorio
         public override bool Modificar(Prestamo entidad) =>
             Adaptador.Escribir(ModificarPrestamo, crearParametrosModificar(entidad));
 
+        public override bool Eliminar(Prestamo entidad) =>
+            Adaptador.Escribir(EliminarPrestamo, crearParametrosEliminar(entidad));
+
         private Dictionary<string, object> crearParametrosModificar(Prestamo entidad) =>
             new Dictionary<string, object>
             {
@@ -114,13 +118,20 @@ namespace Repositorio
                 { "libro_id", entidad.Libro.Id.AsInt() }
             };
 
-        public override bool Eliminar(Prestamo entidad) =>
-            Adaptador.Escribir(EliminarPrestamo, crearParametrosEliminar(entidad));
-
         public override bool VerificarDuplicado(Prestamo entidad)
         {
-            return false;
+            var table = Adaptador.Leer(Duplicadoprestamo, crearParametrosDuplicado(entidad));
+            var existe = table.Rows[0]["existe"] as int? ?? 0;
+            return existe != 0;
         }
+
+        private Dictionary<string, object> crearParametrosDuplicado(Prestamo entidad) =>
+            new Dictionary<string, object>
+            {
+                {"nro_prestamo", entidad.Numero.AsInt() }
+            };
+
+
 
         private Dictionary<string, object> crearParametrosEliminar(Prestamo entidad) =>
             new Dictionary<string, object>

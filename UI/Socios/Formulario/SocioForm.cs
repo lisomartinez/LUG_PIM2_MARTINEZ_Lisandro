@@ -67,6 +67,12 @@ namespace UI.Socios
             set => throw new NotImplementedException();
         }
 
+        public DatosSocio DatosSocioControl
+        {
+            get => DatosSocio;
+            set => throw new NotImplementedException();
+        }
+
         public void MostrarMensaje(string exceptionMessage)
         {
             MessageBox.Show(exceptionMessage);

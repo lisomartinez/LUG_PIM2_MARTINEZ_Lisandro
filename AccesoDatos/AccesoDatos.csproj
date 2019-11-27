@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excepciones\EscrituraSqlException.cs" />
+    <Compile Include="Excepciones\LecturaSqlException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlAdaptador.cs" />
   </ItemGroup>

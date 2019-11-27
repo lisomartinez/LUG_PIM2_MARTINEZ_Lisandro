@@ -46,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TextBox);
             this.Name = "CampoNumero";
-            this.Size = new System.Drawing.Size(212, 21);
+            this.Size = new System.Drawing.Size(221, 21);
             this.ResumeLayout(false);
             this.PerformLayout();
 

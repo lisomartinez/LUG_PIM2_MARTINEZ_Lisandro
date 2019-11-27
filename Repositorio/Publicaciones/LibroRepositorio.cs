@@ -19,6 +19,7 @@ namespace Repositorio.Publicaciones
         public static readonly string AgregarAutorLibro = "AgregarAutorLibro";
         public static readonly string EliminarAutorLibro = "EliminarAutorLibro";
         public static readonly string ObtenerAutoresLibro = "ObtenerAutoresLibro";
+        public static readonly string DuplicadoLibro = "DuplicadoLibro";
 
 
         public LibroRepositorio(SqlAdaptador adaptador) : base(adaptador)
@@ -128,8 +129,17 @@ namespace Repositorio.Publicaciones
 
         public override bool VerificarDuplicado(Libro entidad)
         {
-            return false;
+            var table = Adaptador.Leer(DuplicadoLibro, crearParametrosDuplicado(entidad));
+            var existe = table.Rows[0]["existe"] as int? ?? 0;
+            return existe != 0;
         }
+
+        private Dictionary<string, object> crearParametrosDuplicado(Libro entidad) =>
+            new Dictionary<string, object>
+            {
+                {"nro_libro", entidad.Numero.AsInt() }
+            };
+
 
         private Dictionary<string, object> crearParametrosEliminar(Libro entidad) =>
             new Dictionary<string, object>
@@ -137,6 +147,7 @@ namespace Repositorio.Publicaciones
                 { "libro_id", entidad.Id.AsInt() }
             };
 
+        
         public void Agregar(Libro agregado, Autor entidad)
         {
             Adaptador.Escribir(AgregarAutorLibro, crearParametrosAutor(agregado, entidad));
@@ -149,10 +160,8 @@ namespace Repositorio.Publicaciones
                 { "autor_id", entidad.Id.AsInt() }
             };
         
-        public void Eliminar(Libro agregado, Autor entidad)
-        {
+        public void Eliminar(Libro agregado, Autor entidad) =>
             Adaptador.Escribir(EliminarAutorLibro, crearParametrosAutor(agregado, entidad));
-        }
 
         public List<Autor> ObtenerEntidades(Libro agregado) =>
             Adaptador.Leer(ObtenerAutoresLibro, crearParametrosAutores(agregado))

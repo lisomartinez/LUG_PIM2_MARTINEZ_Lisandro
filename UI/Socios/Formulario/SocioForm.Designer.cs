@@ -31,7 +31,7 @@
             this.SociosGB = new System.Windows.Forms.GroupBox();
             this.SociosDGV = new System.Windows.Forms.DataGridView();
             this.SocioGB = new System.Windows.Forms.GroupBox();
-            this.DatosSocio = new UI.NombreApellido();
+            this.DatosSocio = new UI.DatosSocio();
             this.EliminarBTN = new System.Windows.Forms.Button();
             this.ModificarBTN = new System.Windows.Forms.Button();
             this.AgregarBTN = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             this.SocioGB.Text = "Socio:";
             this.SocioGB.Enter += new System.EventHandler(this.SocioGB_Enter);
             // 
-            // DatosSocio
+            // DatosSocioControl
             // 
             this.DatosSocio.Activo = false;
             this.DatosSocio.Apellido = "";
@@ -143,6 +143,6 @@
         private System.Windows.Forms.Button EliminarBTN;
         private System.Windows.Forms.Button ModificarBTN;
         private System.Windows.Forms.Button AgregarBTN;
-        private NombreApellido DatosSocio;
+        private DatosSocio DatosSocio;
     }
 }

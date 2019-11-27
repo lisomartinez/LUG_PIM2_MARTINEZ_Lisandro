@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Prestamos.Controles;
 using UI.Publicaciones;
 using UI.Socios;
 
@@ -21,7 +22,6 @@ namespace UI.Prestamos
             _presentador = new PrestamoPresentador(this);
             _presentador.MostrarPrestamos();
             _presentador.MostrarSocios();
-            _presentador.MostrarLibros();
         }
 
         private void PrestamoForm_Load(object sender, EventArgs e)
@@ -73,19 +73,25 @@ namespace UI.Prestamos
 
         public DateTime FechaDevolucion
         {
-            get => FechaDevolucionDTP.Value;
-            set => FechaDevolucionDTP.Value = value;
+            get => DatosPrestamo.FechaPublicacion;
+            set => DatosPrestamo.FechaPublicacion = value;
         }
 
         public int Numero
         {
-            get => NumeroCampoNumero.Numero;
-            set => NumeroCampoNumero.Numero = value;
+            get => DatosPrestamo.Numero;
+            set => DatosPrestamo.Numero = value;
         }
 
         public PrestamoDto Prestamo
         {
             get => PrestamosDGV.SelectedRows[0].DataBoundItem as PrestamoDto;
+            set => throw new NotImplementedException();
+        }
+
+        public DatosPrestamo DatosPrestamoControl
+        {
+            get => DatosPrestamo;
             set => throw new NotImplementedException();
         }
 

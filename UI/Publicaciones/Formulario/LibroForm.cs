@@ -50,26 +50,26 @@ namespace UI.Publicaciones
 
         public int Numero
         {
-            get => NroCampoNumero.Numero;
-            set => NroCampoNumero.Numero = value;
+            get => DatosLibro.Numero;
+            set => DatosLibro.Numero = value;
         }
 
         public string Titulo
         {
-            get => TitulocampoTexto.Texto;
-            set => TitulocampoTexto.Texto = value;
+            get => DatosLibro.Titulo;
+            set => DatosLibro.Titulo = value;
         }
 
         public string Editorial
         {
-            get => EditorialCampoTexto.Texto;
-            set => EditorialCampoTexto.Texto = value;
+            get => DatosLibro.Editorial;
+            set => DatosLibro.Editorial = value;
         }
 
         public DateTime Fecha
         {
-            get => FechaDTP.Value;
-            set => FechaDTP.Value = value;
+            get => DatosLibro.Fecha;
+            set => DatosLibro.Fecha = value;
         }
 
         public string Isbn { get; set; }
@@ -102,6 +102,12 @@ namespace UI.Publicaciones
         public AutorDto AutorLibroSeleccionado
         {
             get => AutoresLibroLB.SelectedItem as AutorDto;
+            set => throw new NotImplementedException();
+        }
+
+        public DatosLibro DatosLibroControl
+        {
+            get => DatosLibro;
             set => throw new NotImplementedException();
         }
 
