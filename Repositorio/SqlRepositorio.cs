@@ -18,5 +18,9 @@ namespace Repositorio
         }
         
         public abstract List<T> ObtenerTodos();
+        public abstract bool Guardar(T entidad);
+        public abstract bool Modificar(T entidad);
+        public abstract bool Eliminar(T entidad);
+        public abstract bool VerificarDuplicado(int numero);
     }
 }

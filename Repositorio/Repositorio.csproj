@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAgregableRepositorio.cs" />
+    <Compile Include="Autores\AutorRepositorio.cs" />
+    <Compile Include="Prestamos\PrestamoRepositorio.cs" />
+    <Compile Include="Publicaciones\LibroRepositorio.cs" />
     <Compile Include="Socios\SocioRepositorio.cs" />
     <Compile Include="SqlRepositorio.cs" />
     <Compile Include="IRepositorio.cs" />

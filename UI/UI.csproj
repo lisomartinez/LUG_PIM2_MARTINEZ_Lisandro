@@ -46,6 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autores\AutorDto.cs" />
+    <Compile Include="Autores\AutorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autores\AutorForm.Designer.cs">
+      <DependentUpon>AutorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autores\AutorPresentador.cs" />
+    <Compile Include="Autores\DatosAutor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Autores\DatosAutor.Designer.cs">
+      <DependentUpon>DatosAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autores\IAutorVista.cs" />
+    <Compile Include="Prestamos\IPrestamoVista.cs" />
+    <Compile Include="Prestamos\PrestamoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prestamos\PrestamoForm.Designer.cs">
+      <DependentUpon>PrestamoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prestamos\PrestamoPresentador.cs" />
+    <Compile Include="Publicaciones\ILibroVista.cs" />
+    <Compile Include="Publicaciones\LibroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicaciones\LibroForm.Designer.cs">
+      <DependentUpon>LibroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Publicaciones\LibroPresentador.cs" />
+    <Compile Include="Shared\CampoTexto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\CampoTexto.Designer.cs">
+      <DependentUpon>CampoTexto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\CampoNumero.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\CampoNumero.Designer.cs">
+      <DependentUpon>CampoNumero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\NombreApellido.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Socios\NombreApellido.Designer.cs">
+      <DependentUpon>NombreApellido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +112,21 @@
       <DependentUpon>SocioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Socios\SocioPresentador.cs" />
+    <EmbeddedResource Include="Autores\AutorForm.resx">
+      <DependentUpon>AutorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autores\DatosAutor.resx">
+      <DependentUpon>DatosAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\CampoTexto.resx">
+      <DependentUpon>CampoTexto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\CampoNumero.resx">
+      <DependentUpon>CampoNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\NombreApellido.resx">
+      <DependentUpon>NombreApellido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>

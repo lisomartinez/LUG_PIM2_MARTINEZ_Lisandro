@@ -42,7 +42,8 @@ namespace Repositorio
             {
                 Abrir();
                 _transaction = _connection.BeginTransaction();
-                crearComando(query, parametros).Fill(table);
+                var adapter = new SqlDataAdapter( crearComando(query, parametros));
+                adapter.Fill(table);
                 _transaction.Commit();
             }
             catch (Exception e)
@@ -59,7 +60,7 @@ namespace Repositorio
             return table;
         }
 
-        private SqlDataAdapter crearComando(string query, Dictionary<string, object> parametros)
+        private SqlCommand crearComando(string query, Dictionary<string, object> parametros)
         {
             var cmd = _connection.CreateCommand();
             cmd.CommandText = query;
@@ -69,14 +70,31 @@ namespace Repositorio
                 .ToList()
                 .ForEach(nombre => 
                     cmd.Parameters.AddWithValue(nombre, parametros[nombre]));
-            return new SqlDataAdapter(cmd);
+            return cmd;
         }
 
         public bool Escribir(string query, Dictionary<string, object> parametros)
         {
-            Abrir();
-            Cerrar();
-            return false;
+            try
+            {
+                Abrir();
+                _transaction = _connection.BeginTransaction();
+                var cmd = crearComando(query, parametros);
+                var escrito = cmd.ExecuteNonQuery();
+                _transaction.Commit();
+                return escrito != -1;
+            }
+            catch (Exception e)
+            {
+                _transaction.Rollback();
+                Console.WriteLine(e);
+                return false;
+            }
+            finally
+            {
+                Cerrar();
+            }
+            
         }
     }
 }

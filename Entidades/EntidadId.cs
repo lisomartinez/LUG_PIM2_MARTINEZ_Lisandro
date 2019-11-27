@@ -14,6 +14,8 @@ namespace Entidades
         public static EntidadId Vacia => new EntidadId(0);
 
         public static EntidadId Of(int numero) => new EntidadId(numero);
+        public int AsInt() => numero;
+
 
         public bool Equals(EntidadId other)
         {

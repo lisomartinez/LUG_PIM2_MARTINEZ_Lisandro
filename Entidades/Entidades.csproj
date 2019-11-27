@@ -41,13 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autores\Autor.cs" />
+    <Compile Include="Autores\NroAutor.cs" />
+    <Compile Include="Autores\NroAutorInvalidoException.cs" />
     <Compile Include="Entidad.cs" />
     <Compile Include="EntidadId.cs" />
+    <Compile Include="Prestamos\Fecha.cs" />
+    <Compile Include="Prestamos\NroPrestamo.cs" />
+    <Compile Include="Prestamos\Prestamo.cs" />
+    <Compile Include="Publicaciones\Editorial.cs" />
+    <Compile Include="Publicaciones\FechaPublicacion.cs" />
+    <Compile Include="Publicaciones\ISBN.cs" />
+    <Compile Include="Publicaciones\Libro.cs" />
+    <Compile Include="Publicaciones\NroPublicacion.cs" />
+    <Compile Include="Publicaciones\Titulo.cs" />
     <Compile Include="Shared\NombreInvalidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Apellido.cs" />
     <Compile Include="Shared\ApellidoInvalidoException.cs" />
     <Compile Include="Shared\Nombre.cs" />
+    <Compile Include="Socios\Estado.cs" />
     <Compile Include="Socios\NroSocio.cs" />
     <Compile Include="Shared\NroSocioInvalidoException.cs" />
     <Compile Include="Socios\Socio.cs" />
