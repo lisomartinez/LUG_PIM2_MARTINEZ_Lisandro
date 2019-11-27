@@ -8,6 +8,7 @@ namespace Entidades.Prestamos
 
         private NroPrestamo(int nro)
         {
+            if (nro < 1) throw new NroPrestamosInvalidoException(nro);
             _nro = nro;
         }
 
@@ -38,6 +39,14 @@ namespace Entidades.Prestamos
         public override string ToString()
         {
             return $"{_nro}";
+        }
+    }
+
+    internal class NroPrestamosInvalidoException : Exception
+    {
+        public NroPrestamosInvalidoException(int nro)
+        {
+            throw new NotImplementedException();
         }
     }
 }

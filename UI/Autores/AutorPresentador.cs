@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Entidades.Autores;
 using Entidades.Shared;
 using Servicios;
@@ -25,47 +26,93 @@ namespace UI.Autores
 
         public void MostrarAutores()
         {
-            _vista.Autores = _servicio.ObtenerTodos().Select(AutorDto.FromEntity).ToList();
+            try
+            {
+                _vista.Autores = _servicio.ObtenerTodos().Select(AutorDto.FromEntity).ToList();
+
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e.Message);
+            }
+
         }
 
         public void MostrarAutor()
         {
-            var autor = _vista.Autor;
-            _vista.Nro = autor.Numero;
-            _vista.Nombre = autor.Nombre;
-            _vista.Apellido = autor.Apellido;
+            try
+            {
+                var autor = _vista.Autor;
+                _vista.Nro = autor.Numero;
+                _vista.Nombre = autor.Nombre;
+                _vista.Apellido = autor.Apellido;
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e.Message);
+            }
+
         }
 
         public void Guardar()
         {
-            var nro = _vista.Nro;
-            var nombre = _vista.Nombre;
-            var apellido = _vista.Apellido;
-            var autor = new Autor(
-                numero: NroAutor.Of(nro),
-                nombre: Nombre.Of(nombre),
-                apellido: Apellido.Of(apellido)
-            );
-            _servicio.Guardar(autor);
-            MostrarAutores();
+            try
+            {
+                var nro = _vista.Nro;
+                var nombre = _vista.Nombre;
+                var apellido = _vista.Apellido;
+                var autor = new Autor(
+                    numero: NroAutor.Of(nro),
+                    nombre: Nombre.Of(nombre),
+                    apellido: Apellido.Of(apellido)
+                );
+                _servicio.Guardar(autor);
+                MostrarAutores();
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e.Message);
+            }
+
         }
 
         public void Modificar()
         {
-            var autor = _vista.Autor;
-            autor.Numero = _vista.Nro;
-            autor.Nombre = _vista.Nombre;
-            autor.Apellido = _vista.Apellido;
-            _servicio.Modificar(autor.ToEntity());
-            MostrarAutores();
+            try
+            {
+                var autor = _vista.Autor;
+                autor.Numero = _vista.Nro;
+                autor.Nombre = _vista.Nombre;
+                autor.Apellido = _vista.Apellido;
+                _servicio.Modificar(autor.ToEntity());
+                MostrarAutores();
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e.Message);
+            }
+
         }
 
         public void Eliminar()
         {
-            var autor = _vista.Autor;
-            _servicio.Eliminar(autor.ToEntity());
-            MostrarAutores();
-            LimpiarDatosAutor();
+            try
+            {
+                var autor = _vista.Autor;
+                _servicio.Eliminar(autor.ToEntity());
+                MostrarAutores();
+                LimpiarDatosAutor();
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e.Message);
+            }
+
+        }
+
+        private void MostrarMensaje(string eMessage)
+        {
+            _vista.MostrarMensaje(eMessage);
         }
 
         private void LimpiarDatosAutor()

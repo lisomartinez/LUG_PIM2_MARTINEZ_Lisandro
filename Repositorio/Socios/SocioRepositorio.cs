@@ -47,7 +47,7 @@ namespace Repositorio.Socios
         public override bool Eliminar(Socio entidad) =>
             Adaptador.Escribir(EliminarSocio, crearParametrosEliminar(entidad));
 
-        public override bool VerificarDuplicado(int numero)
+        public override bool VerificarDuplicado(Socio entidad)
         {
             return false;
         }

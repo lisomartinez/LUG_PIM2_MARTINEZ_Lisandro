@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using Entidades;
 using Entidades.Socios;
@@ -8,6 +9,8 @@ namespace UI.Socios
 {
     public class SocioDto : IEquatable<SocioDto>
     {
+
+        [Browsable(false)]
         public EntidadId Id { get; }
         public int Nro { get; set; }
         public string Nombre { get; set; }

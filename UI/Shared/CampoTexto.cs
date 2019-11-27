@@ -31,7 +31,7 @@ namespace UI.Shared
         {
         }
 
-        private bool Valido() => TextoValido.IsMatch(TextBox.Text);
+        public bool Valido() => TextoValido.IsMatch(TextBox.Text);
 
         private void Texto_Validated(object sender, EventArgs e)
         {

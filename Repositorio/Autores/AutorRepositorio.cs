@@ -65,7 +65,7 @@ namespace Repositorio.Autores
         public override bool Eliminar(Autor entidad) =>
             Adaptador.Escribir(EliminarAutor, crearParametrosEliminar(entidad));
 
-        public override bool VerificarDuplicado(int numero)
+        public override bool VerificarDuplicado(Autor entidad)
         {
             return false;
         }

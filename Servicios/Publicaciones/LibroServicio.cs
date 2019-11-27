@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using Entidades.Autores;
-using Repositorio.Autores;
+using Entidades.Publicaciones;
+using Repositorio.Publicaciones;
 
-namespace Servicios.Autores
+namespace Servicios.Publicaciones
 {
-    public class AutorServicio : IServicio<Autor>
+    public class LibroServicio : IServicio<Libro>
     {
-        private IRepositorio<Autor> _repositorio;
+        private IRepositorio<Libro> _repositorio;
 
-        public AutorServicio(IRepositorio<Autor> repositorio)
+        public LibroServicio(IRepositorio<Libro> repositorio)
         {
             _repositorio = repositorio;
         }
 
-        public AutorServicio()
+        public LibroServicio()
         {
-            _repositorio = new AutorRepositorio();
+            _repositorio = new LibroRepositorio();
         }
 
-        public List<Autor> ObtenerTodos()
+        public List<Libro> ObtenerTodos()
         {
             try
             {
@@ -30,28 +30,14 @@ namespace Servicios.Autores
                 Console.WriteLine(e);
                 throw;
             }
-            
         }
 
-        public void Guardar(Autor entidad)
+        public void Guardar(Libro entidad)
         {
             try
             {
-                _repositorio.Guardar(entidad);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            
-        }
-
-        public void Modificar(Autor entidad)
-        {
-            try
-            {
-                _repositorio.Modificar(entidad);
+                var guardado = _repositorio.Guardar(entidad);
+                if (!guardado) throw new ArgumentException();
             }
             catch (Exception e)
             {
@@ -60,11 +46,12 @@ namespace Servicios.Autores
             }
         }
 
-        public void Eliminar(Autor entidad)
+        public void Modificar(Libro entidad)
         {
             try
             {
-                _repositorio.Eliminar(entidad);
+                var guardado = _repositorio.Modificar(entidad);
+                if (!guardado) throw new ArgumentException();
             }
             catch (Exception e)
             {
@@ -73,7 +60,21 @@ namespace Servicios.Autores
             }
         }
 
-        public bool VerificarDuplicados(Autor entidad)
+        public void Eliminar(Libro entidad)
+        {
+            try
+            {
+                var guardado = _repositorio.Eliminar(entidad);
+                if (!guardado) throw new ArgumentException();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public bool VerificarDuplicados(Libro entidad)
         {
             throw new NotImplementedException();
         }

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{71F79228-4A0F-4837-9865-00FCF3969B04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{24FD4F31-957B-4E9F-8087-1FE27D85BD6E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "Servicios\Servicios.csproj", "{70572612-CF06-4847-820D-F69EBA548D1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{AE4FBB45-6A28-48CC-BC87-5CA84C58CAB3}"
@@ -25,10 +23,6 @@ Global
 		{71F79228-4A0F-4837-9865-00FCF3969B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F79228-4A0F-4837-9865-00FCF3969B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F79228-4A0F-4837-9865-00FCF3969B04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24FD4F31-957B-4E9F-8087-1FE27D85BD6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24FD4F31-957B-4E9F-8087-1FE27D85BD6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24FD4F31-957B-4E9F-8087-1FE27D85BD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24FD4F31-957B-4E9F-8087-1FE27D85BD6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70572612-CF06-4847-820D-F69EBA548D1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70572612-CF06-4847-820D-F69EBA548D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70572612-CF06-4847-820D-F69EBA548D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU

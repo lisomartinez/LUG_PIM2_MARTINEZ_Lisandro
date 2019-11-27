@@ -9,5 +9,6 @@ namespace UI.Autores
         int Nro { get; set; }
         string Nombre { get; set; }
         string Apellido { get; set; }
+        void MostrarMensaje(string eMessage);
     }
 }

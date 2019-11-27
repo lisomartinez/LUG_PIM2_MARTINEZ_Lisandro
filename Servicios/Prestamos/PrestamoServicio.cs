@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Repositorio.Socios;
-using Tests;
+using Entidades.Prestamos;
+using Repositorio;
 
-namespace Servicios
+namespace Servicios.Prestamos
 {
-    public class SocioServicio : IServicio<Socio>
+    public class PrestamoServicio : IServicio<Prestamo>
     {
-        private IRepositorio<Socio> _repositorio;
+        private IRepositorio<Prestamo> _repositorio;
 
-        public SocioServicio(IRepositorio<Socio> repositorio)
+        public PrestamoServicio(IRepositorio<Prestamo> repositorio)
         {
             _repositorio = repositorio;
         }
 
-        public SocioServicio()
+        public PrestamoServicio()
         {
-            _repositorio = new SocioRepositorio();
+            _repositorio = new PrestamoRepositorio();
         }
 
-        public List<Socio> ObtenerTodos()
+        public List<Prestamo> ObtenerTodos()
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Servicios
             }
         }
 
-        public void Guardar(Socio entidad)
+        public void Guardar(Prestamo entidad)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Servicios
             }
         }
 
-        public void Modificar(Socio entidad)
+        public void Modificar(Prestamo entidad)
         {
             try
             {
@@ -61,10 +61,9 @@ namespace Servicios
                 Console.WriteLine(e);
                 throw;
             }
-
         }
 
-        public void Eliminar(Socio entidad)
+        public void Eliminar(Prestamo entidad)
         {
             try
             {
@@ -76,12 +75,20 @@ namespace Servicios
                 Console.WriteLine(e);
                 throw;
             }
-
         }
 
-        public bool VerificarDuplicados(Socio entidad)
+        public bool VerificarDuplicados(Prestamo entidad)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.VerificarDuplicado(entidad);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
     }
 }

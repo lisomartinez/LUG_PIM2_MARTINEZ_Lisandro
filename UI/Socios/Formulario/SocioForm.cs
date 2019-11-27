@@ -67,6 +67,11 @@ namespace UI.Socios
             set => throw new NotImplementedException();
         }
 
+        public void MostrarMensaje(string exceptionMessage)
+        {
+            MessageBox.Show(exceptionMessage);
+        }
+
         private void nombreApellido1_Load(object sender, EventArgs e)
         {
         }
@@ -99,6 +104,11 @@ namespace UI.Socios
         private void AgregarBTN_Click(object sender, EventArgs e)
         {
             _presentador.Guardar();
+        }
+
+        private void SocioGB_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

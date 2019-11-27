@@ -19,8 +19,9 @@ namespace UI.Shared
         public int Numero
         {
             get => _valido ? Int32.Parse(TextBox.Text) : 0;
-            set => TextBox.Text = value.ToString();
+            set => TextBox.Text = value == 0 ? "" : value.ToString();
         }
+
 
         public CampoNumero()
         {
@@ -29,6 +30,8 @@ namespace UI.Shared
             TextBox.BackColor = Color.White;
             TextBox.ForeColor = Color.Black;
         }
+
+        internal bool Valido() => _valido;
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {

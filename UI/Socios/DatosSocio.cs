@@ -38,6 +38,8 @@ namespace UI
             set => ActivoCheckBox.Checked = value;
         }
 
+        public bool Valido => NumeroCampoNumero.Valido() && NombreCampoTexto.Valido() && ApellidoCampoTexto.Valido();
+
         public NombreApellido()
         {
             InitializeComponent();

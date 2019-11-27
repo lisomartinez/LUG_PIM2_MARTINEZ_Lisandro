@@ -30,11 +30,15 @@ namespace Repositorio.Publicaciones
 
         }
 
-        public override List<Libro> ObtenerTodos() =>
-            Adaptador.Leer(ObtenerTodosLibro)
+        public override List<Libro> ObtenerTodos()
+        {
+            var libros = Adaptador.Leer(ObtenerTodosLibro)
                 .AsEnumerable()
                 .Select(CrearLibroDesdeFila)
                 .ToList();
+            libros.ForEach(l => l.Autores = ObtenerEntidades(l));
+            return libros;
+        }
 
         private Libro CrearLibroDesdeFila(DataRow fila)
         {
@@ -56,8 +60,15 @@ namespace Repositorio.Publicaciones
             );
         }
 
-        public override bool Guardar(Libro entidad) =>
-            Adaptador.Escribir(GuardarLibro, crearParametrosGuardar(entidad));
+        public override bool Guardar(Libro entidad)
+        {
+            var guardado = Adaptador.Escribir(GuardarLibro, crearParametrosGuardar(entidad));
+            
+            if (guardado) 
+                entidad.Autores.ForEach(a => Agregar(entidad, a));
+            
+            return guardado;
+        }
 
         private Dictionary<string, object> crearParametrosGuardar(Libro entidad) =>
             new Dictionary<string, object>
@@ -66,11 +77,40 @@ namespace Repositorio.Publicaciones
                 { "titulo", entidad.Titulo.ToString() },
                 { "isbn", entidad.Isbn.ToString() },
                 { "editorial", entidad.Editorial.ToString() },
-                { "fecha", entidad.Fecha }
+                { "fecha", entidad.Fecha.ToDateTime() }
             };
 
-        public override bool Modificar(Libro entidad) =>
-            Adaptador.Escribir(ModificarLibro, crearParametrosModificar(entidad));
+        public override bool Modificar(Libro entidad)
+        {
+            var modificado = Adaptador.Escribir(ModificarLibro, crearParametrosModificar(entidad));
+
+            if (modificado)
+            {
+                ActualizarAutoresDeLibro(entidad);
+            }
+
+            return modificado;
+        }
+
+        private void ActualizarAutoresDeLibro(Libro entidad)
+        {
+            var autoresExistentes = ObtenerEntidades(entidad).ToHashSet();
+            List<Autor> paraAgregar = new List<Autor>();
+            foreach (var autor in entidad.Autores)
+            {
+                var existe = autoresExistentes.Contains(autor);
+                if (!existe)
+                {
+                    Agregar(entidad, autor);
+                }
+                else
+                {
+                    autoresExistentes.Remove(autor);
+                }
+                    
+            }
+            autoresExistentes.ToList().ForEach(a => Eliminar(entidad, a));
+        }
 
         private Dictionary<string, object> crearParametrosModificar(Libro entidad) =>
             new Dictionary<string, object>
@@ -80,13 +120,13 @@ namespace Repositorio.Publicaciones
                 { "titulo", entidad.Titulo.ToString() },
                 { "isbn", entidad.Isbn.ToString() },
                 { "editorial", entidad.Editorial.ToString() },
-                { "fecha", entidad.Fecha }
+                { "fecha", entidad.Fecha.ToDateTime() }
             };
 
         public override bool Eliminar(Libro entidad) =>
             Adaptador.Escribir(EliminarLibro, crearParametrosEliminar(entidad));
 
-        public override bool VerificarDuplicado(int numero)
+        public override bool VerificarDuplicado(Libro entidad)
         {
             return false;
         }

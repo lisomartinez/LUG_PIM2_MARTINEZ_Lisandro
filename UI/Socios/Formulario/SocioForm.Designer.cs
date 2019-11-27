@@ -72,6 +72,7 @@
             this.SocioGB.TabIndex = 0;
             this.SocioGB.TabStop = false;
             this.SocioGB.Text = "Socio:";
+            this.SocioGB.Enter += new System.EventHandler(this.SocioGB_Enter);
             // 
             // DatosSocio
             // 

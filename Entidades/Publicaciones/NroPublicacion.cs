@@ -8,6 +8,7 @@ namespace Entidades.Publicaciones
 
         private NroPublicacion(int numero)
         {
+            if (numero < 1) throw new NroPublicacionException(numero);
             _numero = numero;
         }
 
@@ -25,6 +26,14 @@ namespace Entidades.Publicaciones
         public override string ToString()
         {
             return $"{_numero}";
+        }
+    }
+
+    internal class NroPublicacionException : Exception
+    {
+        public NroPublicacionException(int numero)
+        {
+            throw new NotImplementedException();
         }
     }
 }

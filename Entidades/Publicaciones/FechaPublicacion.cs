@@ -8,6 +8,7 @@ namespace Entidades.Publicaciones
 
         private FechaPublicacion(DateTime fecha)
         {
+            if (fecha.Date > DateTime.Today.Date) throw new FechaDePublicacionException(fecha);
             _fecha = fecha;
         }
 
@@ -36,6 +37,14 @@ namespace Entidades.Publicaciones
         public override string ToString()
         {
             return $"{_fecha}";
+        }
+    }
+
+    internal class FechaDePublicacionException : Exception
+    {
+        public FechaDePublicacionException(DateTime fecha)
+        {
+            throw new NotImplementedException();
         }
     }
 }

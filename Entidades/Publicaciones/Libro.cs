@@ -7,7 +7,7 @@ namespace Entidades.Publicaciones
     public class Libro : Entidad
     {
         public NroPublicacion Numero { get; }
-        public List<Autor> Autores { get; }
+        public List<Autor> Autores { get; set; }
         public Fecha Fecha { get; }
         public Titulo Titulo { get; }
         public ISBN Isbn { get; }

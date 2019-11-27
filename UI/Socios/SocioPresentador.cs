@@ -28,60 +28,109 @@ namespace UI.Socios
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                MostrarMensaje(e);
+
             }
-            
+
+        }
+
+        private void MostrarMensaje(Exception exception)
+        {
+            _vista.MostrarMensaje(exception.Message);
         }
 
         public void MostrarSocio()
         {
-            var socio = _vista.Socio;
-            _vista.NroSocio = socio.Nro;
-            _vista.Nombre = socio.Nombre;
-            _vista.Apellido = socio.Apellido;
-            _vista.Activo = socio.Activo;
+            try
+            {
+                var socio = _vista.Socio;
+                _vista.NroSocio = socio.Nro;
+                _vista.Nombre = socio.Nombre;
+                _vista.Apellido = socio.Apellido;
+                _vista.Activo = socio.Activo;
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e);
+            }
+
         }
 
         public void Eliminar()
         {
-            _servicio.Eliminar(_vista.Socio.ToEntity());
-            MostrarSocios();
-            LimpiarDatosSocio();
+            try
+            {
+                _servicio.Eliminar(_vista.Socio.ToEntity());
+                MostrarSocios();
+                LimpiarDatosSocio();
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e);
+            }
+
+
         }
 
         private void LimpiarDatosSocio()
         {
-            _vista.NroSocio = 0;
-            _vista.Nombre = "";
-            _vista.Apellido = "";
-            _vista.Activo = false;
+            try
+            {
+                _vista.NroSocio = 0;
+                _vista.Nombre = "";
+                _vista.Apellido = "";
+                _vista.Activo = false;
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e);
+            }
+
+
         }
 
         public void Modificar()
         {
-            var socio = _vista.Socio;
-            socio.Nro = _vista.NroSocio;
-            socio.Nombre = _vista.Nombre;
-            socio.Apellido = _vista.Apellido;
-            socio.Activo = _vista.Activo;
-            _servicio.Modificar(socio.ToEntity());
-            MostrarSocios();
+            try
+            {
+                var socio = _vista.Socio;
+                socio.Nro = _vista.NroSocio;
+                socio.Nombre = _vista.Nombre;
+                socio.Apellido = _vista.Apellido;
+                socio.Activo = _vista.Activo;
+                _servicio.Modificar(socio.ToEntity());
+                MostrarSocios();
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e);
+            }
+
+
         }
 
         public void Guardar()
         {
-            var nro = NroSocio.Of(_vista.NroSocio);
-            var nombre = Nombre.Of(_vista.Nombre);
-            var apellido = Apellido.Of(_vista.Apellido);
-            var activo = Estado.Of(_vista.Activo);
-            var socio = new Socio(
-                 nroSocio: nro,
-                 nombre: nombre,
-                 apellido: apellido,
-                 activo: activo
+            try
+            {
+                var nro = NroSocio.Of(_vista.NroSocio);
+                var nombre = Nombre.Of(_vista.Nombre);
+                var apellido = Apellido.Of(_vista.Apellido);
+                var activo = Estado.Of(_vista.Activo);
+                var socio = new Socio(
+                    nroSocio: nro,
+                    nombre: nombre,
+                    apellido: apellido,
+                    activo: activo
                 );
-            _servicio.Guardar(socio);
+                _servicio.Guardar(socio);
+            }
+            catch (Exception e)
+            {
+                MostrarMensaje(e);
+            }
+
+
         }
     }
 }

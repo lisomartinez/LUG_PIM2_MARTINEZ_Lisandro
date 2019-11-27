@@ -94,8 +94,8 @@ namespace Repositorio
             new Dictionary<string, object>
             {
                 { "nro_prestamo", entidad.Numero.AsInt() },
-                { "fecha_prestamo", entidad.FechaPrestamo },
-                { "fecha_devolucion", entidad.FechaDevolucion },
+                { "fecha_prestamo", entidad.FechaPrestamo.ToDateTime() },
+                { "fecha_devolucion", entidad.FechaDevolucion.ToDateTime() },
                 { "socio_id", entidad.Socio.Id.AsInt() },
                 { "libro_id", entidad.Libro.Id.AsInt() }
             };
@@ -108,8 +108,8 @@ namespace Repositorio
             {
                 { "prestamo_id", entidad.Id.AsInt() },
                 { "nro_prestamo", entidad.Numero.AsInt() },
-                { "fecha_prestamo", entidad.FechaPrestamo },
-                { "fecha_devolucion", entidad.FechaDevolucion },
+                { "fecha_prestamo", entidad.FechaPrestamo.ToDateTime() },
+                { "fecha_devolucion", entidad.FechaDevolucion.ToDateTime() },
                 { "socio_id", entidad.Socio.Id.AsInt() },
                 { "libro_id", entidad.Libro.Id.AsInt() }
             };
@@ -117,7 +117,7 @@ namespace Repositorio
         public override bool Eliminar(Prestamo entidad) =>
             Adaptador.Escribir(EliminarPrestamo, crearParametrosEliminar(entidad));
 
-        public override bool VerificarDuplicado(int numero)
+        public override bool VerificarDuplicado(Prestamo entidad)
         {
             return false;
         }

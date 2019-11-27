@@ -29,12 +29,20 @@ namespace UI.Autores
             get => NumeroCampoNumero.Numero;
             set => NumeroCampoNumero.Numero = value;
         }
+
+        public bool Valido => NumeroCampoNumero.Valido() && ApellidoCampoTexto.Valido() && NombreCampoTexto.Valido();
+
         public DatosAutor()
         {
             InitializeComponent();
         }
 
         private void NumeroCampoNumero_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DatosAutor_Load(object sender, EventArgs e)
         {
 
         }

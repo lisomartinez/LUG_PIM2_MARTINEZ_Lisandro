@@ -9,6 +9,6 @@ namespace Servicios
         bool Guardar(T entidad);
         bool Modificar(T entidad);
         bool Eliminar(T entidad);
-        bool VerificarDuplicado(int numero);
+        bool VerificarDuplicado(T entidad);
     }
 }

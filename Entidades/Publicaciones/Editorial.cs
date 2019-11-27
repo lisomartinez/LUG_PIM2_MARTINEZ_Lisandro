@@ -8,6 +8,7 @@ namespace Entidades.Publicaciones
 
         private Editorial(string nombre)
         {
+            if (!nombre.EsNombreCompuestoValido()) throw new NombreEditorialException(nombre);
             _nombre = nombre;
         }
 
@@ -36,6 +37,15 @@ namespace Entidades.Publicaciones
         public override string ToString()
         {
             return $"{_nombre}";
+        }
+    }
+
+    internal class NombreEditorialException : Exception
+    {
+        public NombreEditorialException(string nombre)
+        {
+            
+
         }
     }
 }

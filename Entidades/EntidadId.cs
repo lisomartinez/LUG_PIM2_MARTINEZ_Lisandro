@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Entidades
 {
-    public class EntidadId : IEquatable<EntidadId>
+    public class EntidadId : IEquatable<EntidadId>, IComparable
     {
         private int numero;
 
@@ -37,9 +38,25 @@ namespace Entidades
             return numero;
         }
 
+        public int CompareTo(object obj)
+        {
+            if (ReferenceEquals(null, obj)) throw new ArgumentException();
+            if (obj is EntidadId e)
+            {
+                return numero.CompareTo(e.numero);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+        }
+
+
         public override string ToString()
         {
             return $"{numero}";
         }
+
+     
     }
 }

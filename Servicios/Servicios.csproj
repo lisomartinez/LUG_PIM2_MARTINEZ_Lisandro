@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autores\AutorServicio.cs" />
+    <Compile Include="Prestamos\PrestamoServicio.cs" />
+    <Compile Include="Publicaciones\LibroServicio.cs" />
     <Compile Include="Socios\SocioServicio.cs" />
     <Compile Include="IServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

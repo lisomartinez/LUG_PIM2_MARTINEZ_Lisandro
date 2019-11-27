@@ -31,9 +31,9 @@
             this.AutoresGroupBox = new System.Windows.Forms.GroupBox();
             this.AutoresDGV = new System.Windows.Forms.DataGridView();
             this.AutorGroupBox = new System.Windows.Forms.GroupBox();
-            this.AgregarButton = new System.Windows.Forms.Button();
-            this.ModificarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
+            this.ModificarButton = new System.Windows.Forms.Button();
+            this.AgregarButton = new System.Windows.Forms.Button();
             this.DatosAutor = new UI.Autores.DatosAutor();
             this.AutoresGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AutoresDGV)).BeginInit();
@@ -73,15 +73,15 @@
             this.AutorGroupBox.TabStop = false;
             this.AutorGroupBox.Text = "AutorGroupBox";
             // 
-            // AgregarButton
+            // EliminarButton
             // 
-            this.AgregarButton.Location = new System.Drawing.Point(19, 138);
-            this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(75, 23);
-            this.AgregarButton.TabIndex = 1;
-            this.AgregarButton.Text = "Agregar";
-            this.AgregarButton.UseVisualStyleBackColor = true;
-            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
+            this.EliminarButton.Location = new System.Drawing.Point(232, 138);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(75, 23);
+            this.EliminarButton.TabIndex = 1;
+            this.EliminarButton.Text = "Eliminar";
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // ModificarButton
             // 
@@ -93,20 +93,23 @@
             this.ModificarButton.UseVisualStyleBackColor = true;
             this.ModificarButton.Click += new System.EventHandler(this.ModificarButton_Click);
             // 
-            // EliminarButton
+            // AgregarButton
             // 
-            this.EliminarButton.Location = new System.Drawing.Point(232, 138);
-            this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(75, 23);
-            this.EliminarButton.TabIndex = 1;
-            this.EliminarButton.Text = "Eliminar";
-            this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            this.AgregarButton.Location = new System.Drawing.Point(19, 138);
+            this.AgregarButton.Name = "AgregarButton";
+            this.AgregarButton.Size = new System.Drawing.Size(75, 23);
+            this.AgregarButton.TabIndex = 1;
+            this.AgregarButton.Text = "Agregar";
+            this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
             // DatosAutor
             // 
+            this.DatosAutor.Apellido = "";
             this.DatosAutor.Location = new System.Drawing.Point(19, 29);
             this.DatosAutor.Name = "DatosAutor";
+            this.DatosAutor.Nombre = "";
+            this.DatosAutor.NroAutor = 0;
             this.DatosAutor.Size = new System.Drawing.Size(288, 92);
             this.DatosAutor.TabIndex = 0;
             // 
@@ -119,6 +122,7 @@
             this.Controls.Add(this.AutoresGroupBox);
             this.Name = "AutorForm";
             this.Text = "AutorForm";
+            this.Load += new System.EventHandler(this.AutorForm_Load);
             this.AutoresGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AutoresDGV)).EndInit();
             this.AutorGroupBox.ResumeLayout(false);

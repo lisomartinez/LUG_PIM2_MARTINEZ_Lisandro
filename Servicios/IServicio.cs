@@ -8,5 +8,6 @@ namespace Servicios
         void Guardar(T entidad);
         void Modificar(T entidad);
         void Eliminar(T entidad);
+        bool VerificarDuplicados(T entidad);
     }
 }

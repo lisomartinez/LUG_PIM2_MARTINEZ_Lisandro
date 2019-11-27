@@ -11,5 +11,6 @@ namespace UI.Socios
         string Apellido { get; set; }
         bool Activo { get; set; }
         SocioDto Socio { get; set; }
+        void MostrarMensaje(string exceptionMessage);
     }
 }

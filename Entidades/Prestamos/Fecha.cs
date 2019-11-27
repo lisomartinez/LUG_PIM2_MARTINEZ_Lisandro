@@ -8,6 +8,8 @@ namespace Entidades.Prestamos
 
         private Fecha(DateTime fecha)
         {
+
+            if (fecha.Date <= DateTime.Today.Date) throw new FechaDeDevolucionException(fecha);
             _fecha = fecha;
         }
 
@@ -36,6 +38,20 @@ namespace Entidades.Prestamos
         public override string ToString()
         {
             return $"{_fecha}";
+        }
+
+        public DateTime ToDateTime()
+        {
+            return _fecha;
+        }
+    }
+
+    internal class FechaDeDevolucionException : Exception
+    {
+        public FechaDeDevolucionException(DateTime fecha)
+        {
+            
+
         }
     }
 }

@@ -100,6 +100,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DatosAutor";
             this.Size = new System.Drawing.Size(288, 92);
+            this.Load += new System.EventHandler(this.DatosAutor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

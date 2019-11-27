@@ -73,5 +73,15 @@ namespace UI.Autores
         {
             _presentador.Eliminar();
         }
+
+        private void AutorForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void MostrarMensaje(string exceptionMessage)
+        {
+            MessageBox.Show(exceptionMessage);
+        }
     }
 }
